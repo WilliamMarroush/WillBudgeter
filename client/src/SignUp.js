@@ -5,15 +5,17 @@ function SignUp(){
     const [email,setEmail] = useState('');
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState ('');
+    const [confirmpassword,setConfirmPassword] = useState('');
+    const [message,setMessage] = useState('');
 
-    const handleSubmit = (e) =>{
+    const handleSubmit = async (e) =>{
         e.preventDefault();
         console.log('email:', email);
         console.log('username:', username);
         console.log('password:', password);
 
         try {
-            const response = await axios.post('http://localhost:3000/api/auth/signup', {
+            const response = await axios.post('http://localhost:5000/api/auth/signup', {
                 email,
                 password,
             });
@@ -32,9 +34,9 @@ function SignUp(){
                     <label>Email</label>
                     <input
                     type = "email"
-                    value = {email}
                     onChange = {(e) => setEmail(e.target.value)}
-                    placeholder = "Enter your email" />
+                    placeholder = "Enter your email"
+                    value = {email} />
                 </div>
                 <div>
                     <label>Username</label>
@@ -56,7 +58,7 @@ function SignUp(){
                     <label>Confirm Password</label>
                     <input
                     type = "password"
-                    value = {password}
+                    value = {confirmpassword}
                     onSubmit = {(e) => {
                         if (password === e.target.value){
                             setPassword(e.target.value);
@@ -64,6 +66,9 @@ function SignUp(){
                         else{
                             alert('Passwords do not match');
                         }
+                    }}
+                    onChange = {(e) => {
+                        setConfirmPassword(e.target.value)
                     }}
                     placeholder = "Re-enter Password" />
                 </div>

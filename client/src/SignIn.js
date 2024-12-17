@@ -4,6 +4,7 @@ import axios from 'axios';
 function SignIn(){
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [message,setMessage] = useState('');
 
     const handleSubmit = async (e) =>{
         e.preventDefault(); // prevent the page from refreshing
@@ -11,7 +12,7 @@ function SignIn(){
         console.log('Password:', password);
 
         try {
-            const response = await axios.post('http://localhost:3000/api/auth/signup', {
+            const response = await axios.post('http://localhost:5000/api/auth/signin', {
                 email,
                 password,
             });
@@ -23,7 +24,7 @@ function SignIn(){
     };
 
     return (
-        <div classname = "sign-in-container">
+        <div className = "sign-in-container">
             <h2>Sign In</h2>
             <form onSubmit = {handleSubmit}>
                 <div>
