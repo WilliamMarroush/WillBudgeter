@@ -1,13 +1,25 @@
 import React, {useState} from 'react';
+import axios from 'axios';
 
 function SignIn(){
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleSubmit = (e) =>{
+    const handleSubmit = async (e) =>{
         e.preventDefault(); // prevent the page from refreshing
         console.log('email:', email);
         console.log('Password:', password);
+
+        try {
+            const response = await axios.post('http://localhost:3000/api/auth/signup', {
+                email,
+                password,
+            });
+            setMessage(response.data.message);
+            console.log('Sign-Up Successful:', response.data);}
+        catch (e){
+            console.error('Sign-Up Failed:', e.response?.data || e.message);
+        }
     };
 
     return (
