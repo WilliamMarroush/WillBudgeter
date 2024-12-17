@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import axios from 'axios';
 
 function SignUp(){
     const [email,setEmail] = useState('');
@@ -10,9 +11,21 @@ function SignUp(){
         console.log('email:', email);
         console.log('username:', username);
         console.log('password:', password);
-    }
+
+        try {
+            const response = await axios.post('http://localhost:3000/api/auth/signup', {
+                email,
+                password,
+            });
+            setMessage(response.data.message);
+            console.log('Sign-Up Successful:', response.data);}
+        catch (e){
+            console.error('Sign-Up Failed:', e.response?.data || e.message);
+        }
+        
+    };
     return(
-        <div>
+        <div className = "SignUp-Container">
             <h2>Sign Up</h2>
             <form onSubmit = {handleSubmit}>
                 <div>
