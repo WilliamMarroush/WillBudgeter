@@ -76,6 +76,8 @@ function SignUp(){
                     <button type = "submit">Sign Up</button>
                 </div>
             </form>
+            <p>Already have an account? Sign In</p>
+            <a href="/signin"><button type = "sign-in-link"> Sign In</button></a>
         </div>
     );
 
