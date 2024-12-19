@@ -1,23 +1,34 @@
-const signUp = (req,res) =>{
-    const {email, password} = req.body;
+// signUp function to handle user registration
+const signUp = (req, res) => {
+    const { email, password } = req.body; // Destructure email and password from the request body
     
-    if (!email || !password){
-        return res.status(400).json({message: `Please provide email and password`});
+    // Check if both email and password are provided, if not send an error response
+    if (!email || !password) {
+        return res.status(400).json({ message: `Please provide email and password` });
     }
 
-    console.log(`Sign-Up request received: `, {email, password});
-    res.status(201).json({message: `User created successfully!`});
+    // Log the received email and password for debugging
+    console.log(`Sign-Up request received: `, { email, password });
+    
+    // Send a success response indicating the user was created
+    res.status(201).json({ message: `User created successfully!` });
 };
 
-const signIn = (req,res) =>{
-    const {email, password} = req.body;
+// signIn function to handle user login
+const signIn = (req, res) => {
+    const { email, password } = req.body; // Destructure email and password from the request body
 
-    if (!email || !password){
-        return res.status(400).json({message: `Please provide email and password`});
+    // Check if both email and password are provided, if not send an error response
+    if (!email || !password) {
+        return res.status(400).json({ message: `Please provide email and password` });
     }
 
-    console.log(`Sign-In request received: `, {email, password});
-    res.status(200).json({message: `User logged in successfully!`});
+    // Log the received email and password for debugging
+    console.log(`Sign-In request received: `, { email, password });
+    
+    // Send a success response indicating the user logged in successfully
+    res.status(200).json({ message: `User logged in successfully!` });
 };
 
-module.exports = {signUp, signIn};
+// Export the functions so they can be used in other files (e.g., routes)
+module.exports = { signUp, signIn };
