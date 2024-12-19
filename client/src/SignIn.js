@@ -8,6 +8,12 @@ function SignIn(){
 
     const handleSubmit = async (e) =>{
         e.preventDefault(); // prevent the page from refreshing
+
+        if (!email || !password){
+            alert('Both email and password are required.');
+            return;
+        }
+
         console.log('email:', email);
         console.log('Password:', password);
 
