@@ -3,6 +3,7 @@ import Navbar from './components/Navbar.jsx';
 import Dashboard from './pages/Dashboard.jsx';
 import SignIn from './components/SignIn.jsx';
 import SignUp from './components/SignUp.jsx';
+import Transactions from './pages/Transactions.jsx';
 import './styles/index.css'; // Make sure you have this or equivalent
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/signin" element={<SignIn />} />
             <Route path="/signup" element={<SignUp />} />
+            <Route path="/transactions" element={<Transactions />}/>
           </Routes>
         </main>
       </div>
