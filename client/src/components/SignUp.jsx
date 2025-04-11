@@ -35,6 +35,9 @@ function SignUp() {
           </div>
         </div>
         <button type="submit" className="btn btn-info w-100">Create Account</button>
+        <div className="mt-3 text-center">
+          <a href="/signin">Already have an account? Sign in</a>
+        </div>
       </form>
     </div>
   );

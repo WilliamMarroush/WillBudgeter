@@ -14,6 +14,9 @@ function SignIn() {
           <input type="password" className="form-control" id="password" placeholder="Enter your password" />
         </div>
         <button type="submit" className="btn btn-info w-100">Log In</button>
+        <div className="mt-3 text-center">
+          <a href="/signup">Don't have an account? Sign Up</a>
+        </div>
       </form>
     </div>
   );
